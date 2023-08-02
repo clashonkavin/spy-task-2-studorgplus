@@ -45,9 +45,10 @@ const Navbar = () => {
         <div className="logo">Student Organizer Plus</div>
       </Link>
       <div className="menu">
+        <Link to="/home">Home</Link>
+        <Link to="/expense">Expenses</Link>
         <Link to="/events">Calendar</Link>
-        <Link to="/home">{data.name} (Profile)</Link>
-        <Link onClick={handlelogout}>Logout</Link>
+        <Link onClick={handlelogout}>{data.name}(Logout)</Link>
       </div>
     </nav>
   );

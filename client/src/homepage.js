@@ -182,7 +182,7 @@ const Home = () => {
     useEffect(() => {
       const today = new Date();
       const next2date = new Date(today);
-      next2date.setDate(today.getDate() + 3);
+      next2date.setDate(today.getDate() + 30);
       getEvents(
         today.toISOString().split("T")[0],
         next2date.toISOString().split("T")[0]

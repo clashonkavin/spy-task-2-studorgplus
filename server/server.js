@@ -1,14 +1,13 @@
 const express = require("express");
 const app = express();
 const session = require("express-session");
-const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const Profile = require("./models/profileModel");
 const { checkToken } = require("./utils/tokenCheck");
+const mongoose = require("mongoose");
 
-const dbURI =
-  "mongodb+srv://clashonkavin:test1234@rocket.j9vwrao.mongodb.net/spidertask2?retryWrites=true&w=majority";
+const dbURI = "mongodb://127.0.0.1:27017/spy2";
 mongoose
   .connect(dbURI)
   .then(() => {
@@ -47,6 +46,9 @@ app.use("/gclndr", gclndr);
 
 const assignment = require("./routes/assignment");
 app.use("/assignment", assignment);
+
+const expense = require("./routes/expense");
+app.use("/expenses", expense);
 
 app.get("/profile", async (req, res) => {
   const profileInstance = await Profile.findOne({

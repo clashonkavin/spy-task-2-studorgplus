@@ -7,6 +7,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import { AiOutlinePlus } from "react-icons/ai";
 import plusImage from "./fotor_2023-7-25_20_9_54-fotor-20230725201025.png";
 
 const Events = () => {
@@ -188,7 +189,7 @@ const Events = () => {
         {isPending && <span className="loading-card">Loading...</span>}
       </div>
       <div className="show-form-btn" onClick={handleShowForm}>
-        <img src={plusImage} alt="gicon"></img>
+        <AiOutlinePlus fontSize={50} color="#0b66c6" fontWeight={900} />
       </div>
 
       {showEventForm && (

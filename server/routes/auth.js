@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Profile = require("../models/profileModel");
+const Expense = require("../models/expenseModel");
 const bcrypt = require("bcrypt");
 
 router.post("/login", async (req, res) => {
@@ -35,9 +36,13 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       password: await bcrypt.hash(req.body.password, 10),
     });
+    const exp = new Expense({
+      username: req.body.username,
+    });
     data
       .save()
       .then((result) => {
+        exp.save();
         res.send({ message: "Registration Successful", msg_type: "success" });
       })
       .catch((err) => console.log(err));
